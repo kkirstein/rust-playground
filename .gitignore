@@ -9,7 +9,7 @@
 ## Tools, e.g. vim backup files
 #############
 *~
-
+*.swp
 
 #############
 ## Windows detritus
