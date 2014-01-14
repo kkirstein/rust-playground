@@ -13,6 +13,7 @@ use std::num::{Zero,One};
 use extra::time::precise_time_ns;
 
 // Fibonacci series
+// ================
 
 // Naive implementation
 fn fib_rec(n: uint) -> uint {
@@ -44,7 +45,29 @@ fn fib_bigint(n: uint) -> BigUint {
 	fib_aux(Zero::zero(), One::one(), n)
 }
 
+// Perfect numbers
+// ===============
+fn is_perfect(&n: &uint) -> bool {
+	let mut i = 1;
+	let mut sum = 0;
 
+	while (i < n) {
+		if (n % i) == 0 {
+			sum += i;
+		}
+		i += 1;
+	}
+
+	sum == n
+}
+
+fn perfect_numbers(n: uint) -> ~[uint] {
+	std::iter::range_inclusive(0,n).filter(is_perfect).to_owned_vec()
+}
+
+
+// Main
+// ====
 fn main() {
     println("Fibonacci series:");
 	println("=================");
@@ -69,6 +92,17 @@ fn main() {
 
 	let tic = precise_time_ns();
 	println!("fib_bigint(1000) = {:s}", fib_bigint(1000).to_str());
+	let toc = precise_time_ns();
+	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
+	println("");
+
+    println("Perfect numbers:");
+	println("================");
+
+	let tic = precise_time_ns();
+	let pn = perfect_numbers(10000);
+	println!("Found {:u} perfect numbers until 10000:", pn.len());
+	println!("{:?}", pn);
 	let toc = precise_time_ns();
 	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
 	println("");
