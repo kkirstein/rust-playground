@@ -101,7 +101,7 @@ fn main() {
 
 	let tic = precise_time_ns();
 	let pn = perfect_numbers(10000);
-	println!("Found {:u} perfect numbers until 10000:", pn.len());
+	println!("Found {:u} perfect numbers below 10000:", pn.len());
 	println!("{:?}", pn);
 	let toc = precise_time_ns();
 	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
