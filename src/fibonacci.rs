@@ -1,5 +1,5 @@
-// fib.rs
-// Implementation if fib module
+// fibonacci.rs
+// Implementation of fib module
 // to calculate Fibbonacci series
 //
 // vim: ft=rust sw=4 ts=4
