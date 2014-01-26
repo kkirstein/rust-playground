@@ -15,6 +15,7 @@ use perfect_number::perfect_numbers;
 // define modules
 mod fibonacci;
 mod perfect_number;
+mod mandelbrot;
 
 
 // Main
@@ -24,7 +25,7 @@ fn main() {
 	println("=================");
 
 	let tic = precise_time_ns();
-	println!("fib(35) = {:u}", fib_rec(35));
+	println!("fib(35) = {:u} (naive recursive version)", fib_rec(35));
 	let toc = precise_time_ns();
 	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
 	println("");
@@ -32,13 +33,13 @@ fn main() {
 	let tic = precise_time_ns();
 	println!("fib(35) = {:f}", fib(35));
 	let toc = precise_time_ns();
-	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
+	println!("Elapsed time {:u}us", (toc-tic)/1000);
 	println("");
 
 	let tic = precise_time_ns();
 	println!("fib(1000) = {:f}", fib(1000));
 	let toc = precise_time_ns();
-	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
+	println!("Elapsed time {:u}us", (toc-tic)/1000);
 	println("");
 
 	let tic = precise_time_ns();
