@@ -58,6 +58,26 @@ fn main() {
 	let toc = precise_time_ns();
 	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
 	println("");
+
+    println("Mandelbrot set:");
+	println("===============");
+
+	//println!("colormap length: {:?}", mandelbrot::colormap.len());
+	let tic = precise_time_ns();
+	println("Calculating Mandelbrot set for 640 x 480 pixel");
+	let mandelbrot_set = mandelbrot::mandelbrot(640, 480, -0.5, 0.0, 4.0/640f32);
+	let toc = precise_time_ns();
+	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
+	println("");
+
+	let tic = precise_time_ns();
+	let outfile = "mandelbrot_640_480.pgm";
+	println!("Writing to file {:s}", outfile);
+
+	let toc = precise_time_ns();
+	println!("Elapsed time {:u}ms", (toc-tic)/1000000);
+	println("");
+
 }
 
 
